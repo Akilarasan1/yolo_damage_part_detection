@@ -4,7 +4,8 @@ from ultralytics import YOLO
 import tempfile
 import torch
 import time
-
+import os
+import requests
 # Streamlit page setup
 st.set_page_config(
     page_title="YOLOv11 Live Detection",
@@ -57,8 +58,20 @@ st.markdown("""
 
 st.title("📱 YOLOv11 Live Damage Detection")
 
-# Load model
-model = YOLO("car_damage_data_V5_model_6.pt")
+MODEL_PATH = "car_damage_data_V5_model_6.pt"
+MODEL_URL = "https://huggingface.co/akil11101/car_parts_and_damage_detection_model/resolve/main/car_damage_data_V5_model_6.pt"
+
+# Auto-download the model if missing
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Hugging Face Hub...")
+    response = requests.get(MODEL_URL)
+    with open(MODEL_PATH, "wb") as f:
+        f.write(response.content)
+    print("✅ Model downloaded successfully!")
+
+# Load the YOLO model
+model = YOLO(MODEL_PATH)
+
 class_names = {0: 'crack', 1: 'dent', 2: 'glass_shatter', 3: 'lamp_broken', 4: 'scratch', 5: 'tire_flat'}
 
 # Sidebar options
