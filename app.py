@@ -58,8 +58,8 @@ st.markdown("""
 
 st.title("📱 YOLOv11 Live Damage Detection")
 
-MODEL_PATH = "car_damage_data_V5_model_6.pt"
-MODEL_URL = "https://huggingface.co/akil11101/car_parts_and_damage_detection_model/resolve/main/car_damage_data_V5_model_6.pt"
+MODEL_PATH = "car_damage_data_V5_model_6.torchscript"
+MODEL_URL = "https://huggingface.co/akil11101/car_parts_and_damage_detection_model/resolve/main/car_damage_data_V5_model_6.torchscript"
 
 # Auto-download the model if missing
 if not os.path.exists(MODEL_PATH):
