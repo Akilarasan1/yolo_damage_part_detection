@@ -58,7 +58,7 @@ st.markdown("""
 st.title("📱 YOLOv11 Live Damage Detection")
 
 # Load model
-model = YOLO("yolo11_13oct.pt")
+model = YOLO("car_damage_data_V5_model_6.pt")
 class_names = {0: 'crack', 1: 'dent', 2: 'glass_shatter', 3: 'lamp_broken', 4: 'scratch', 5: 'tire_flat'}
 
 # Sidebar options
