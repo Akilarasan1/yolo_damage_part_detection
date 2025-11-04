@@ -37,15 +37,15 @@ else:
 
 print("Loading YOLO segmentation model...")
 
-model_path = "Yolo11_13oct_openvino_model/"  # or your .pt file
+model_path = "Yolo11_13oct_openvino_model/"  # or .pt file
 
 model = YOLO(model_path, task="segment")
 
 if str(model_path).endswith(".pt"):
     model.to(device)
-    print(f"✅ Loaded PyTorch model on {device.upper()}")
+    print(f"Loaded PyTorch model on {device.upper()}")
 else:
-    print("✅ Loaded OpenVINO model (device managed automatically)")
+    print("Loaded OpenVINO model (device managed automatically)")
 
 print(" Model loaded successfully")
 
